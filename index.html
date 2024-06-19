@@ -6,22 +6,25 @@
     <title>Download Automático</title>
 </head>
 <body>
-    <h1>Download AutomáticoAAAAA</h1>
+    <h1>Download Automático</h1>
     <p>O download do arquivo começará automaticamente.</p>
-    <iframe id="downloadFrame" style="display: none;"></iframe>
     <script>
         // URL do arquivo a ser baixado
         var fileURL = 'https://mastermindpickup.github.io/keepup/manutencao_corretiva.js';
 
-        // Função para iniciar o download
-        function startDownload(url) {
-            var iframe = document.getElementById('downloadFrame');
-            iframe.src = url;
+        // Função para criar e clicar automaticamente no link de download
+        function triggerDownload(url) {
+            var link = document.createElement('a');
+            link.href = url;
+            link.download = url.split('/').pop();
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
         }
 
         // Chama a função para iniciar o download
         window.onload = function() {
-            startDownload(fileURL);
+            triggerDownload(fileURL);
         };
     </script>
 </body>
